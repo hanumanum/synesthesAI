@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Raven - A Visualization of Poe's Poem</title>
+    <link rel="stylesheet" href="/styles/main.css">
+  </head>
+  <body>
+    <div class="visualization-container">
+      <div id="sketch-container">
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="resilience.html">Resilience I</a></li>
+            <li><a href="resilience2.html">Resilience II</a></li>
+            <li><a href="raven.html" class="active">The Raven</a></li>
+            <li><a href="butterfly.html">Butterfly</a></li>
+            <li><a href="khayyam.html">Khayyám's Wisdom</a></li>
+          </ul>
+        </nav>
+        <script type="module" src="/src/sketches/raven.ts"></script>
+      </div>
+      
+      <div id="poem-container">
+        <h1 id="poem-title">The Raven</h1>
+        <div id="poem-text">
+          <p>Once upon a midnight dreary, while I pondered, weak and weary,<br>
+          <span class="indent">Over many a quaint and curious volume of forgotten lore—</span><br>
+          While I nodded, nearly napping, suddenly there came a tapping,<br>
+          <span class="indent">As of some one gently rapping, rapping at my chamber door.</span><br>
+          "'Tis some visitor," I muttered, "tapping at my chamber door—<br>
+          <span class="indent">Only this and nothing more."</span></p>
+
+          <p>Ah, distinctly I remember it was in the bleak December;<br>
+          <span class="indent">And each separate dying ember wrought its ghost upon the floor.</span><br>
+          Eagerly I wished the morrow;—vainly I had sought to borrow<br>
+          <span class="indent">From my books surcease of sorrow—sorrow for the lost Lenore—</span><br>
+          For the rare and radiant maiden whom the angels name Lenore—<br>
+          <span class="indent">Nameless here for evermore.</span></p>
+
+          <p>And the silken, sad, uncertain rustling of each purple curtain<br>
+          <span class="indent">Thrilled me—filled me with fantastic terrors never felt before;</span><br>
+          So that now, to still the beating of my heart, I stood repeating<br>
+          <span class="indent">"'Tis some visitor entreating entrance at my chamber door—</span><br>
+          Some late visitor entreating entrance at my chamber door;—<br>
+          <span class="indent">This it is and nothing more."</span></p>
+
+          <div id="poem-author">— Edgar Allan Poe</div>
+        </div>
+      </div>
+
+      <div id="notes-container">
+        <h1 id="notes-title">Visualization Notes</h1>
+        <div id="notes-text">
+          <p>This visualization captures the dark, atmospheric essence of Poe's "The Raven" through several key elements:</p>
+          
+          <p><strong>Visual Elements:</strong></p>
+          <ul>
+            <li><strong>Shadow Particles:</strong> Create a dark, mysterious atmosphere around the raven, representing the poem's haunting mood</li>
+            <li><strong>Ember Particles:</strong> Represent the "dying ember" mentioned in the poem, flickering and rising from the fireplace</li>
+            <li><strong>Curtain Particles:</strong> Symbolize the "silken, sad, uncertain rustling" of the purple curtains</li>
+            <li><strong>Raven Particles:</strong> Form a cohesive shape of the raven, slowly materializing as the poem progresses</li>
+          </ul>
+
+          <p><strong>Interactive Features:</strong></p>
+          <ul>
+            <li>Move your mouse to interact with the particles and create atmospheric disturbances</li>
+            <li>The raven gradually materializes, representing its mysterious entrance</li>
+            <li>Embers flicker and rise, creating a dynamic, living atmosphere</li>
+            <li>Curtains wave gently, adding to the sense of unease</li>
+          </ul>
+
+          <p><strong>Controls:</strong></p>
+          <ul>
+            <li>Press 'p' to pause/resume the animation</li>
+            <li>Press 'r' to reset the visualization</li>
+            <li>Press 'i' to toggle instructions</li>
+          </ul>
+
+          <p><strong>Visual Metaphors:</strong></p>
+          <ul>
+            <li>The dark atmosphere represents the poem's melancholic mood</li>
+            <li>The raven's gradual appearance mirrors its mysterious entrance</li>
+            <li>Flickering embers symbolize the narrator's fading hope</li>
+            <li>Waving curtains represent the narrator's growing unease</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html> 
