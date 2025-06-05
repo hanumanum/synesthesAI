@@ -149,7 +149,6 @@ const sketch = (p: p5) => {
       particle.y += particle.vy;
       
       // Apply forces based on type
-      const distFromCenter = p.dist(particle.x, particle.y, centerX, centerY);
       const angleToCenter = p.atan2(centerY - particle.y, centerX - particle.x);
       
       switch(particle.type) {

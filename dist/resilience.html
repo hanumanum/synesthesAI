@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resilience II - A Geometric Visualization of Kipling's "If—"</title>
+    <!-- Add Prism.js CSS and JS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+    <script type="module" crossorigin src="/assets/resilience-BMymzc7Q.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/app-D7MfDG2y.js">
+    <link rel="stylesheet" crossorigin href="/assets/main-BWcoT-tb.css">
+  </head>
+  <body>
+    <div class="visualization-container">
+      <div id="sketch-container">
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="resilience.html" class="active">Resilience</a></li>
+            <li><a href="raven.html">The Raven</a></li>
+            <li><a href="butterfly.html">Butterfly</a></li>
+            <li><a href="khayyam.html">Khayyám's Wisdom</a></li>
+            <li><a href="sail.html">The Sail</a></li>
+            <li><a href="tao.html">The Tao</a></li>
+            <li><a href="highlands.html">The Highlands</a></li>
+            <li><a href="poison-tree.html">A Poison Tree</a></li>
+            <li><a href="road.html">The Road Not Taken</a></li>
+          </ul>
+        </nav>
+      </div>
+      
+      <div id="poem-container">
+        <h1 id="poem-title">If—</h1>
+        <div id="poem-author">— Rudyard Kipling</div>
+        <div id="poem-text">
+          <p>If you can keep your head when all about you<br>
+          Are losing theirs and blaming it on you,<br>
+          If you can trust yourself when all men doubt you,<br>
+          But make allowance for their doubting too;</p>
+
+          <p>If you can wait and not be tired by waiting,<br>
+          Or being lied about, don't deal in lies,<br>
+          Or being hated, don't give way to hating,<br>
+          And yet don't look too good, nor talk too wise:</p>
+
+          <p>If you can dream—and not make dreams your master;<br>
+          If you can think—and not make thoughts your aim;<br>
+          If you can meet with Triumph and Disaster<br>
+          And treat those two impostors just the same;</p>
+
+          <p>If you can bear to hear the truth you've spoken<br>
+          Twisted by knaves to make a trap for fools,<br>
+          Or watch the things you gave your life to, broken,<br>
+          And stoop and build 'em up with worn-out tools:</p>
+
+          <p>If you can make one heap of all your winnings<br>
+          And risk it on one turn of pitch-and-toss,<br>
+          And lose, and start again at your beginnings<br>
+          And never breathe a word about your loss;</p>
+
+          <p>If you can force your heart and nerve and sinew<br>
+          To serve your turn long after they are gone,<br>
+          And so hold on when there is nothing in you<br>
+          Except the Will which says to them: 'Hold on!'</p>
+
+          <p>If you can talk with crowds and keep your virtue,<br>
+          Or walk with Kings—nor lose the common touch,<br>
+          If neither foes nor loving friends can hurt you,<br>
+          If all men count with you, but none too much;</p>
+
+          <p>If you can fill the unforgiving minute<br>
+          With sixty seconds' worth of distance run,<br>
+          Yours is the Earth and everything that's in it,<br>
+          <span class="indent">And—which is more—you'll be a Man, my son!</span></p>
+        </div>
+      </div>
+
+      <div id="notes-container">
+        <h1 id="notes-title">Source Code</h1>
+        <div id="code-container">
+          <pre><code class="language-typescript" id="source-code"></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Fetch and display the source code
+      fetch('/src/sketches/resilience.ts')
+        .then(response => response.text())
+        .then(code => {
+          document.getElementById('source-code').textContent = code;
+          Prism.highlightElement(document.getElementById('source-code'));
+        });
+    </script>
+  </body>
+</html> 

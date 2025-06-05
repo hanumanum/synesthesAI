@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Raven - A Visualization of Poe's Poem</title>
+    <!-- Add Prism.js CSS and JS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+    <script type="module" crossorigin src="/assets/raven-CghXGRnu.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/app-D7MfDG2y.js">
+    <link rel="stylesheet" crossorigin href="/assets/main-BWcoT-tb.css">
+  </head>
+  <body>
+    <div class="visualization-container">
+      <div id="sketch-container">
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="resilience.html">Resilience</a></li>
+            <li><a href="raven.html" class="active">The Raven</a></li>
+            <li><a href="butterfly.html">Butterfly</a></li>
+            <li><a href="khayyam.html">Khayyám's Wisdom</a></li>
+            <li><a href="sail.html">The Sail</a></li>
+            <li><a href="tao.html">The Tao</a></li>
+            <li><a href="highlands.html">The Highlands</a></li>
+            <li><a href="poison-tree.html">A Poison Tree</a></li>
+            <li><a href="road.html">The Road Not Taken</a></li>
+          </ul>
+        </nav>
+      </div>
+      
+      <div id="poem-container">
+        <h1 id="poem-title">The Raven</h1>
+        <div id="poem-author">— Edgar Allan Poe</div>
+        <div id="poem-text">
+          <p>Once upon a midnight dreary, while I pondered, weak and weary,<br>
+          Over many a quaint and curious volume of forgotten lore—<br>
+          While I nodded, nearly napping, suddenly there came a tapping,<br>
+          As of some one gently rapping, rapping at my chamber door.<br>
+          "'Tis some visitor," I muttered, "tapping at my chamber door—<br>
+          Only this and nothing more."</p>
+
+          <p>Ah, distinctly I remember it was in the bleak December;<br>
+          And each separate dying ember wrought its ghost upon the floor.<br>
+          Eagerly I wished the morrow;—vainly I had sought to borrow<br>
+          From my books surcease of sorrow—sorrow for the lost Lenore—<br>
+          For the rare and radiant maiden whom the angels name Lenore—<br>
+          Nameless here for evermore.</p>
+
+          <p>And the silken, sad, uncertain rustling of each purple curtain<br>
+          Thrilled me—filled me with fantastic terrors never felt before;<br>
+          So that now, to still the beating of my heart, I stood repeating<br>
+          "'Tis some visitor entreating entrance at my chamber door—<br>
+          Some late visitor entreating entrance at my chamber door;—<br>
+          This it is and nothing more."</p>
+        </div>
+      </div>
+
+      <div id="notes-container">
+        <h1 id="notes-title">Source Code</h1>
+        <div id="code-container">
+          <pre><code class="language-typescript" id="source-code"></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Fetch and display the source code
+      fetch('/src/sketches/raven.ts')
+        .then(response => response.text())
+        .then(code => {
+          document.getElementById('source-code').textContent = code;
+          Prism.highlightElement(document.getElementById('source-code'));
+        });
+    </script>
+  </body>
+</html> 

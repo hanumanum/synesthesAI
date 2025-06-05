@@ -86,7 +86,7 @@ const sketch = (p: p5) => {
     p.background(0, 0, 0, 0);
 
     // Update and draw waves
-    waves.forEach((wave, i) => {
+    waves.forEach((wave) => {
       wave.points.forEach((point, j) => {
         point.y = wave.points[0].y + 
           p.sin(time * wave.frequency + j * 0.1 + wave.phase) * 
