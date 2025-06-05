@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Tao - A Visualization of Lao Tzu's Poem</title>
+    <!-- Add Prism.js CSS and JS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+    <script type="module" crossorigin src="assets/tao-C9ar9VIs.js"></script>
+    <link rel="modulepreload" crossorigin href="assets/app-D7MfDG2y.js">
+    <link rel="stylesheet" crossorigin href="assets/main-BWcoT-tb.css">
+  </head>
+  <body>
+    <div class="visualization-container">
+      <div id="sketch-container">
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="resilience.html">Resilience</a></li>
+            <li><a href="raven.html">The Raven</a></li>
+            <li><a href="butterfly.html">Butterfly</a></li>
+            <li><a href="khayyam.html">Khayyám's Wisdom</a></li>
+            <li><a href="sail.html">The Sail</a></li>
+            <li><a href="tao.html" class="active">The Tao</a></li>
+            <li><a href="highlands.html">The Highlands</a></li>
+            <li><a href="poison-tree.html">A Poison Tree</a></li>
+            <li><a href="road.html">The Road Not Taken</a></li>
+          </ul>
+        </nav>
+      </div>
+      
+      <div id="poem-container">
+        <h1 id="poem-title">Tao Te Ching</h1>
+        <div id="poem-author">— Lao Tzu</div>
+        <div id="poem-text">
+          <p>Tao (The Way) that can be spoken of is not the Constant Tao'<br>
+          The name that can be named is not a Constant Name.<br>
+          Nameless, is the origin of Heaven and Earth;<br>
+          The named is the Mother of all things.</p>
+
+          <p>Thus, the constant void enables one to observe the true essence.<br>
+          The constant being enables one to see the outward manifestations.<br>
+          These two come paired from the same origin.<br>
+          But when the essence is manifested,<br>
+          It has a different name.</p>
+
+          <p>This same origin is called "The Profound Mystery."<br>
+          As profound the mystery as It can be,<br>
+          It is the Gate to the essence of all life.</p>
+        </div>
+      </div>
+
+      <div id="notes-container">
+        <h1 id="notes-title">Source Code</h1>
+        <div id="code-container">
+          <pre><code class="language-typescript" id="source-code"></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Fetch and display the source code
+      fetch('/src/sketches/tao.ts')
+        .then(response => response.text())
+        .then(code => {
+          document.getElementById('source-code').textContent = code;
+          Prism.highlightElement(document.getElementById('source-code'));
+        });
+    </script>
+  </body>
+</html> 

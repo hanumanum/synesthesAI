@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Armenian Highlands - A Visualization of Heritage and Hope</title>
+    <!-- Add Prism.js CSS and JS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+    <script type="module" crossorigin src="assets/highlands-BR_aUdzy.js"></script>
+    <link rel="modulepreload" crossorigin href="assets/app-D7MfDG2y.js">
+    <link rel="stylesheet" crossorigin href="assets/main-BWcoT-tb.css">
+  </head>
+  <body>
+    <div class="visualization-container">
+      <div id="sketch-container">
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="resilience.html">Resilience</a></li>
+            <li><a href="raven.html">The Raven</a></li>
+            <li><a href="butterfly.html">Butterfly</a></li>
+            <li><a href="khayyam.html">Khayyám's Wisdom</a></li>
+            <li><a href="sail.html">The Sail</a></li>
+            <li><a href="tao.html">The Tao</a></li>
+            <li><a href="highlands.html" class="active">The Highlands</a></li>
+            <li><a href="poison-tree.html">A Poison Tree</a></li>
+            <li><a href="road.html">The Road Not Taken</a></li>
+          </ul>
+        </nav>
+      </div>
+      
+      <div id="poem-container">
+        <h1 id="poem-title">The Armenian Highlands</h1>
+        <div id="poem-author">— Hovhannes Tumanyan</div>
+        <div id="poem-text">
+          <p>The way was heavy and the night was dark,<br>
+          And yet we survived<br>
+          Both sorrow and gloom.<br>
+          Through the ages we go and gaze at the stark<br>
+          Steep heights of our land—<br>
+          The Armenian Highlands.</p>
+
+          <p>We carry from old our treasure,<br>
+          Vast as the sea,<br>
+          Brought into life<br>
+          By the great soul of our people,<br>
+          In our lofty land—<br>
+          The Armenian Highlands.</p>
+
+          <p>How many times<br>
+          The savage hordes<br>
+          From the blazing desert<br>
+          Tore and tormented<br>
+          Our caravan<br>
+          In our blood-smeared land—<br>
+          The Armenian Highlands.</p>
+
+          <p>Yet, plundered and scattered,<br>
+          Our caravan<br>
+          Sought its way out<br>
+          From among the rocks<br>
+          Counting the scars of its countless wounds<br>
+          In our mournful land—<br>
+          The Armenian Highlands.</p>
+
+          <p>And we gaze with dolorous, longing eyes<br>
+          At the earth in its gloom,<br>
+          At the distant stars;<br>
+          Ah, when will the dawn break at last<br>
+          Over our green<br>
+          Armenian Highlands.</p>
+        </div>
+      </div>
+
+      <div id="notes-container">
+        <h1 id="notes-title">Source Code</h1>
+        <div id="code-container">
+          <pre><code class="language-typescript" id="source-code"></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Fetch and display the source code
+      fetch('/src/sketches/highlands.ts')
+        .then(response => response.text())
+        .then(code => {
+          document.getElementById('source-code').textContent = code;
+          Prism.highlightElement(document.getElementById('source-code'));
+        });
+    </script>
+  </body>
+</html> 

@@ -16,7 +16,11 @@ export default defineConfig({
         raven: resolve(__dirname, 'raven.html'),
         butterfly: resolve(__dirname, 'butterfly.html'),
         khayyam: resolve(__dirname, 'khayyam.html'),
-        sail: resolve(__dirname, 'sail.html')
+        sail: resolve(__dirname, 'sail.html'),
+        tao: resolve(__dirname, 'tao.html'),
+        highlands: resolve(__dirname, 'highlands.html'),
+        'poison-tree': resolve(__dirname, 'poison-tree.html'),
+        'road-not-taken': resolve(__dirname, 'road.html')
       }
     }
   }
