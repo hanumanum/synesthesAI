@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Sail - A Visualization of Lermontov's Poem</title>
     <link rel="stylesheet" href="/styles/main.css">
+    <!-- Add Prism.js CSS and JS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
   </head>
   <body>
     <div class="visualization-container">
@@ -27,6 +31,7 @@
       
       <div id="poem-container">
         <h1 id="poem-title">The Sail</h1>
+        <div id="poem-author">— Mikhail Lermontov</div>
         <div id="poem-text">
           <p>A lonely sail is flashing white<br>
           Amidst the blue mist of the sea!...<br>
@@ -42,43 +47,25 @@
           Above, a golden ray of sun...<br>
           Rebellious, it seeks out a storm<br>
           As if in storms it could find peace!</p>
-
-          <div id="poem-author">— Mikhail Lermontov</div>
         </div>
       </div>
 
       <div id="notes-container">
-        <h1 id="notes-title">Visualization Notes</h1>
-        <div id="notes-text">
-          <p>This visualization interprets Lermontov's "The Sail" through a dynamic particle system that embodies the poem's themes of restlessness and seeking:</p>
-          
-          <p><strong>Visual Elements:</strong></p>
-          <ul>
-            <li><strong>Sail Particles:</strong> White triangular shapes that represent the lonely sail, moving with the wind and waves</li>
-            <li><strong>Wave Particles:</strong> Blue elements that create the dynamic sea surface, responding to both calm and storm</li>
-            <li><strong>Mist Particles:</strong> Light blue elements that create the atmospheric "blue mist" mentioned in the poem</li>
-            <li><strong>Light Particles:</strong> Golden elements that represent the "golden ray of sun" and moments of clarity</li>
-            <li><strong>Storm Particles:</strong> Dark elements that emerge during the storm phases, representing the sail's search for meaning</li>
-          </ul>
-
-          <p><strong>Interactive Features:</strong></p>
-          <ul>
-            <li>Move your mouse to interact with the sail and waves, creating ripples of influence</li>
-            <li>Watch as the scene cycles between calm and storm states</li>
-            <li>Observe how the sail responds to different conditions</li>
-            <li>Experience the contrast between light and dark, calm and storm</li>
-          </ul>
-
-          <p><strong>Visual Metaphors:</strong></p>
-          <ul>
-            <li>The sail's movement represents the poem's themes of restlessness and seeking</li>
-            <li>The contrast between calm and storm symbolizes the sail's paradoxical search for peace</li>
-            <li>The golden light effects represent moments of clarity and understanding</li>
-            <li>The mist and waves create a sense of vastness and mystery</li>
-            <li>The connections between particles illustrate the interconnectedness of the elements</li>
-          </ul>
+        <h1 id="notes-title">Source Code</h1>
+        <div id="code-container">
+          <pre><code class="language-typescript" id="source-code"></code></pre>
         </div>
       </div>
     </div>
+
+    <script>
+      // Fetch and display the source code
+      fetch('/src/sketches/sail.ts')
+        .then(response => response.text())
+        .then(code => {
+          document.getElementById('source-code').textContent = code;
+          Prism.highlightElement(document.getElementById('source-code'));
+        });
+    </script>
   </body>
 </html> 

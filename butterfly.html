@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Butterfly - A Visualization of Bashō's Haiku</title>
     <link rel="stylesheet" href="/styles/main.css">
+    <!-- Add Prism.js CSS and JS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
   </head>
   <body>
     <div class="visualization-container">
@@ -27,43 +31,30 @@
       
       <div id="poem-container">
         <h1 id="poem-title">Wake, butterfly—</h1>
+        <div id="poem-author">— Matsuo Bashō</div>
         <div id="poem-text">
           <p>Wake, butterfly—<br>
           it's late, we've miles<br>
           to go together.</p>
-          <div id="poem-author">— Matsuo Bashō</div>
         </div>
       </div>
 
       <div id="notes-container">
-        <h1 id="notes-title">Visualization Notes</h1>
-        <div id="notes-text">
-          <p>This visualization interprets Bashō's haiku through a delicate particle system that embodies the butterfly's awakening and journey:</p>
-          
-          <p><strong>Visual Elements:</strong></p>
-          <ul>
-            <li><strong>Wing Particles (White):</strong> Form the butterfly's wings, gently fluttering to create a sense of awakening</li>
-            <li><strong>Trail Particles (Light Blue):</strong> Create an ethereal trail behind the butterfly, representing the journey</li>
-            <li><strong>Sparkle Particles (Soft Yellow):</strong> Add moments of light and energy, suggesting the morning's awakening</li>
-          </ul>
-
-          <p><strong>Interactive Features:</strong></p>
-          <ul>
-            <li>Move your mouse to interact with the butterfly, creating gentle disturbances in its flight</li>
-            <li>The butterfly's wings flutter continuously, creating a sense of life and movement</li>
-            <li>Sparkles appear occasionally, adding moments of brightness to the journey</li>
-            <li>The subtle gradient background suggests the passage of time and space</li>
-          </ul>
-
-          <p><strong>Visual Metaphors:</strong></p>
-          <ul>
-            <li>The butterfly's gentle movement represents the awakening described in the haiku</li>
-            <li>The trailing particles suggest the "miles to go" mentioned in the poem</li>
-            <li>The interactive nature creates a sense of companionship between viewer and butterfly</li>
-            <li>The ethereal quality of the particles reflects the delicate nature of both the butterfly and the haiku form</li>
-          </ul>
+        <h1 id="notes-title">Source Code</h1>
+        <div id="code-container">
+          <pre><code class="language-typescript" id="source-code"></code></pre>
         </div>
       </div>
     </div>
+
+    <script>
+      // Fetch and display the source code
+      fetch('/src/sketches/butterfly.ts')
+        .then(response => response.text())
+        .then(code => {
+          document.getElementById('source-code').textContent = code;
+          Prism.highlightElement(document.getElementById('source-code'));
+        });
+    </script>
   </body>
 </html> 

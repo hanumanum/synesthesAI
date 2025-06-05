@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A Poison Tree - A Visualization of Blake's Poem</title>
     <link rel="stylesheet" href="/styles/main.css">
+    <!-- Add Prism.js CSS and JS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
   </head>
   <body>
     <div class="visualization-container">
@@ -27,6 +31,7 @@
       
       <div id="poem-container">
         <h1 id="poem-title">A Poison Tree</h1>
+        <div id="poem-author">— William Blake</div>
         <div id="poem-text">
           <p>I was angry with my friend;<br>
           I told my wrath, my wrath did end.<br>
@@ -47,43 +52,25 @@
           When the night had veild the pole;<br>
           In the morning glad I see;<br>
           My foe outstretched beneath the tree.</p>
-
-          <div id="poem-author">— William Blake</div>
         </div>
       </div>
 
       <div id="notes-container">
-        <h1 id="notes-title">Visualization Notes</h1>
-        <div id="notes-text">
-          <p>This visualization interprets Blake's powerful allegory through dynamic elements that embody the poem's themes of anger, growth, and revenge:</p>
-          
-          <p><strong>Visual Elements:</strong></p>
-          <ul>
-            <li><strong>The Tree:</strong> Represents the growing wrath, with branches that extend and leaves that multiply over time</li>
-            <li><strong>Apples:</strong> Symbolize the poisonous fruit of anger, gradually changing color as they become more toxic</li>
-            <li><strong>Day/Night Cycle:</strong> Represents the passage of time and the nurturing of wrath "both day and night"</li>
-            <li><strong>Shadow:</strong> Represents the presence of the foe, growing darker as the tree matures</li>
-            <li><strong>Leaves:</strong> Symbolize the "soft deceitful wiles" used to nurture the anger</li>
-          </ul>
-
-          <p><strong>Interactive Features:</strong></p>
-          <ul>
-            <li>Click to toggle between day and night, representing the cycle of nurturing wrath</li>
-            <li>Watch as the tree grows and bears its poisonous fruit</li>
-            <li>Observe how the shadow grows darker as the tree matures</li>
-            <li>See the apples gradually change color as they become more toxic</li>
-          </ul>
-
-          <p><strong>Visual Metaphors:</strong></p>
-          <ul>
-            <li>The tree's growth represents the nurturing and development of anger</li>
-            <li>The changing colors of the apples symbolize the transformation of anger into poison</li>
-            <li>The day/night cycle illustrates the constant attention given to nurturing wrath</li>
-            <li>The growing shadow suggests the increasing presence of the foe</li>
-            <li>The swaying branches and leaves represent the deceptive nature of nurtured anger</li>
-          </ul>
+        <h1 id="notes-title">Source Code</h1>
+        <div id="code-container">
+          <pre><code class="language-typescript" id="source-code"></code></pre>
         </div>
       </div>
     </div>
+
+    <script>
+      // Fetch and display the source code
+      fetch('/src/sketches/poison-tree.ts')
+        .then(response => response.text())
+        .then(code => {
+          document.getElementById('source-code').textContent = code;
+          Prism.highlightElement(document.getElementById('source-code'));
+        });
+    </script>
   </body>
 </html> 

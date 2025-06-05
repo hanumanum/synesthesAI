@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Tao - A Visualization of Lao Tzu's Poem</title>
     <link rel="stylesheet" href="/styles/main.css">
+    <!-- Add Prism.js CSS and JS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
   </head>
   <body>
     <div class="visualization-container">
@@ -27,6 +31,7 @@
       
       <div id="poem-container">
         <h1 id="poem-title">Tao Te Ching</h1>
+        <div id="poem-author">— Lao Tzu</div>
         <div id="poem-text">
           <p>Tao (The Way) that can be spoken of is not the Constant Tao'<br>
           The name that can be named is not a Constant Name.<br>
@@ -42,42 +47,25 @@
           <p>This same origin is called "The Profound Mystery."<br>
           As profound the mystery as It can be,<br>
           It is the Gate to the essence of all life.</p>
-
-          <div id="poem-author">— Lao Tzu</div>
         </div>
       </div>
 
       <div id="notes-container">
-        <h1 id="notes-title">Visualization Notes</h1>
-        <div id="notes-text">
-          <p>This visualization interprets Lao Tzu's profound meditation on the Tao through abstract, dynamic elements that embody the poem's central themes:</p>
-          
-          <p><strong>Visual Elements:</strong></p>
-          <ul>
-            <li><strong>Void Particles (Blue):</strong> Represent the nameless, formless origin of all things, moving with ethereal grace</li>
-            <li><strong>Form Particles (Yellow):</strong> Symbolize the named, manifested aspects of reality, creating visible patterns</li>
-            <li><strong>The Gate:</strong> A central structure representing the "Gate to the essence of all life," pulsing with energy</li>
-            <li><strong>Connections:</strong> Dynamic lines between particles illustrate the interplay of void and form</li>
-          </ul>
-
-          <p><strong>Interactive Features:</strong></p>
-          <ul>
-            <li>Move your mouse to interact with the particles and observe their response</li>
-            <li>Click to create a "storm" effect that temporarily disrupts the harmony, representing the challenge of understanding the Tao</li>
-            <li>Watch as particles of void and form dance together, illustrating their paired nature</li>
-            <li>Observe how the gate pulses and rotates, suggesting the constant flow of the Tao</li>
-          </ul>
-
-          <p><strong>Visual Metaphors:</strong></p>
-          <ul>
-            <li>The contrast between void and form particles represents the poem's central duality</li>
-            <li>The gate's structure symbolizes the "Profound Mystery" mentioned in the text</li>
-            <li>The particles' orbital motion suggests the eternal cycle of the Tao</li>
-            <li>The connections between particles illustrate how void and form are "paired from the same origin"</li>
-            <li>The storm effect represents the challenge of speaking about the unspeakable Tao</li>
-          </ul>
+        <h1 id="notes-title">Source Code</h1>
+        <div id="code-container">
+          <pre><code class="language-typescript" id="source-code"></code></pre>
         </div>
       </div>
     </div>
+
+    <script>
+      // Fetch and display the source code
+      fetch('/src/sketches/tao.ts')
+        .then(response => response.text())
+        .then(code => {
+          document.getElementById('source-code').textContent = code;
+          Prism.highlightElement(document.getElementById('source-code'));
+        });
+    </script>
   </body>
 </html> 

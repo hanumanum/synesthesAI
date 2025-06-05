@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Armenian Highlands - A Visualization of Heritage and Hope</title>
     <link rel="stylesheet" href="/styles/main.css">
+    <!-- Add Prism.js CSS and JS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
   </head>
   <body>
     <div class="visualization-container">
@@ -27,6 +31,7 @@
       
       <div id="poem-container">
         <h1 id="poem-title">The Armenian Highlands</h1>
+        <div id="poem-author">— Hovhannes Tumanyan</div>
         <div id="poem-text">
           <p>The way was heavy and the night was dark,<br>
           And yet we survived<br>
@@ -64,43 +69,25 @@
           Ah, when will the dawn break at last<br>
           Over our green<br>
           Armenian Highlands.</p>
-
-          <div id="poem-author">— Hovhannes Tumanyan</div>
         </div>
       </div>
 
       <div id="notes-container">
-        <h1 id="notes-title">Visualization Notes</h1>
-        <div id="notes-text">
-          <p>This visualization interprets Tumanyan's powerful poem through dynamic elements that embody the themes of heritage, struggle, and hope:</p>
-          
-          <p><strong>Visual Elements:</strong></p>
-          <ul>
-            <li><strong>Mountains:</strong> Represent the "steep heights" of the Armenian Highlands, with dynamic shadows that suggest the passage of time</li>
-            <li><strong>Caravans:</strong> Symbolize the journey of the Armenian people, leaving trails that represent their enduring heritage</li>
-            <li><strong>Stars:</strong> Represent hope and guidance, twinkling in the night sky</li>
-            <li><strong>Storms:</strong> Symbolize the "savage hordes" and challenges faced throughout history</li>
-            <li><strong>Dawn Effect:</strong> Represents the hope for a new beginning, transforming the night sky into day</li>
-          </ul>
-
-          <p><strong>Interactive Features:</strong></p>
-          <ul>
-            <li>Move your mouse to interact with the caravans and observe their response</li>
-            <li>Click to trigger the dawn effect, symbolizing hope and renewal</li>
-            <li>Watch as the caravans navigate through the mountains, representing the journey of the Armenian people</li>
-            <li>Observe how the storms move across the landscape, suggesting the challenges faced throughout history</li>
-          </ul>
-
-          <p><strong>Visual Metaphors:</strong></p>
-          <ul>
-            <li>The mountains' imposing presence represents the enduring strength of the Armenian Highlands</li>
-            <li>The caravans' trails illustrate the lasting impact of the Armenian people's journey</li>
-            <li>The contrast between night and dawn symbolizes the hope for a brighter future</li>
-            <li>The storms' movement across the landscape represents the historical challenges faced</li>
-            <li>The stars' twinkling suggests the constant presence of hope and guidance</li>
-          </ul>
+        <h1 id="notes-title">Source Code</h1>
+        <div id="code-container">
+          <pre><code class="language-typescript" id="source-code"></code></pre>
         </div>
       </div>
     </div>
+
+    <script>
+      // Fetch and display the source code
+      fetch('/src/sketches/highlands.ts')
+        .then(response => response.text())
+        .then(code => {
+          document.getElementById('source-code').textContent = code;
+          Prism.highlightElement(document.getElementById('source-code'));
+        });
+    </script>
   </body>
 </html> 
