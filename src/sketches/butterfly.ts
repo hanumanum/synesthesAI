@@ -21,8 +21,6 @@ interface Particle {
 
 const sketch = (p: p5) => {
   let particles: Particle[] = [];
-  let mouseForce: p5.Vector;
-  let isPaused = false;
   let time = 0;
   let butterflyPhase = 0;
   let journeyProgress = 0;
@@ -106,8 +104,7 @@ const sketch = (p: p5) => {
     p.background(0);
     p.colorMode(p.RGB, 255, 255, 255, 255);
 
-    mouseForce = p.createVector(0, 0);
-    
+  
     // Create initial butterfly in center
     createButterfly(p.width * 0.5, p.height * 0.5);
     
@@ -120,7 +117,6 @@ const sketch = (p: p5) => {
 
   p.draw = () => {
     p.background(0, 0, 0);
-    if (isPaused) return;
 
     time += 0.01;
     butterflyPhase = (butterflyPhase + 0.01) % p.TWO_PI;
@@ -242,15 +238,6 @@ const sketch = (p: p5) => {
     });
   };
 
-  p.keyPressed = () => {
-    if (p.key === 'p' || p.key === 'P') {
-      isPaused = !isPaused;
-    } else if (p.key === 'r' || p.key === 'R') {
-      particles = [];
-      createButterfly(p.width * 0.5, p.height * 0.5);
-    }
-  };
-
   p.windowResized = () => {
     const container = document.getElementById('sketch-container');
     if (!container) return;
@@ -260,5 +247,4 @@ const sketch = (p: p5) => {
   };
 };
 
-// Create a new p5 instance with the sketch
-const p5Instance = new p5(sketch); 
+new p5(sketch); 

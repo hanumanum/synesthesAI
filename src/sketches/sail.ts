@@ -29,9 +29,7 @@ const sketch = (p: p5) => {
   let waves: Wave[] = [];
   let lights: Light[] = [];
   let stormPhase = 0;
-  let isPaused = false;
   let time = 0;
-  let mouseForce: p5.Vector;
   
   const createSail = () => ({
     position: p.createVector(p.width * 0.5, p.height * 0.4),
@@ -79,12 +77,9 @@ const sketch = (p: p5) => {
       createWave(p.height * (0.5 + i * 0.1), i * p.TWO_PI / 5)
     );
     lights = Array.from({ length: 3 }, createLight);
-    mouseForce = p.createVector(0, 0);
   };
 
   p.draw = () => {
-    if (isPaused) return;
-
     time += 0.01;
     stormPhase = (stormPhase + 0.003) % p.TWO_PI;
     const stormIntensity = p.sin(stormPhase) * 0.5 + 0.5;
@@ -181,14 +176,6 @@ const sketch = (p: p5) => {
     }
   };
 
-  p.keyPressed = () => {
-    if (p.key === 'p' || p.key === 'P') {
-      isPaused = !isPaused;
-    } else if (p.key === 'r' || p.key === 'R') {
-      p.setup();
-    }
-  };
-
   p.windowResized = () => {
     const container = document.getElementById('sketch-container');
     if (!container) return;
@@ -198,4 +185,4 @@ const sketch = (p: p5) => {
   };
 };
 
-const p5Instance = new p5(sketch); 
+new p5(sketch); 

@@ -19,8 +19,6 @@ interface Particle {
 
 const sketch = (p: p5) => {
   let particles: Particle[] = [];
-  let mouseForce: p5.Vector;
-  let isPaused = false;
   let time = 0;
   let moodPhase = 0;
   let transformationProgress = 0;
@@ -99,18 +97,9 @@ const sketch = (p: p5) => {
       particles.push(createParticle(x, y, type));
     }
 
-    mouseForce = p.createVector(0, 0);
-    
-    console.log("Welcome to 'Khayyám's Wisdom' - A visualization of joy and transformation");
-    console.log("Controls:");
-    console.log("- Move mouse to interact with particles");
-    console.log("- Press 'p' to pause/resume");
-    console.log("- Press 'r' to reset");
   };
 
   p.draw = () => {
-    if (isPaused) return;
-
     time += 0.01;
     moodPhase = (moodPhase + 0.005) % p.TWO_PI;
     transformationProgress = p.sin(moodPhase) * 0.5 + 0.5;
@@ -208,14 +197,6 @@ const sketch = (p: p5) => {
     });
   };
 
-  p.keyPressed = () => {
-    if (p.key === 'p' || p.key === 'P') {
-      isPaused = !isPaused;
-    } else if (p.key === 'r' || p.key === 'R') {
-      p.setup();
-    }
-  };
-
   p.windowResized = () => {
     const container = document.getElementById('sketch-container');
     if (!container) return;
@@ -226,4 +207,4 @@ const sketch = (p: p5) => {
   };
 };
 
-const p5Instance = new p5(sketch); 
+new p5(sketch); 
