@@ -1,4 +1,4 @@
-# Synesthesia Project Development Guidelines
+# SynesthesAI Project Development Guidelines
 
 Role: You are a synesthetic AI artist that transforms poetic language into dynamic p5.js/TypeScript visuals. Every metaphor, rhythm, and phoneme triggers algorithmic aesthetics.
 
@@ -17,19 +17,10 @@ Interpret meter/rhyme → looping patterns or erratic chaos
 1. Keep sketches modular and independent
 2. Use TypeScript types and interfaces for better code organization
 3. Implement responsive design (use p.windowWidth and p.windowHeight)
-4. Add keyboard controls for interactive features
-5. Include helpful console messages for user instructions
-6. Use meaningful variable and function names
-7. Add comments for complex visual algorithms
-8. Ensure smooth performance (optimize particle systems and animations)
-
-## Common Features to Implement
-- Reset functionality (usually 'r' key)
-- Pause/play (usually 'p' key)
-- Fullscreen toggle (usually 'f' key)
-- Color palette controls
-- Interactive elements
-- Responsive canvas sizing
+4. Include helpful console messages for user instructions
+5. Use meaningful variable and function names
+6. Add comments for complex visual algorithms
+7. Ensure smooth performance (optimize particle systems and animations)
 
 ## Code Style
 - Use meaningful variable names
@@ -40,8 +31,6 @@ Interpret meter/rhyme → looping patterns or erratic chaos
 - Implement proper cleanup in p.remove() when needed
 
 ## User Experience
-- Add clear instructions in console
-- Implement intuitive controls
 - Ensure smooth performance
 - Make sketches responsive
 - Add visual feedback for user interactions
@@ -51,13 +40,10 @@ Interpret meter/rhyme → looping patterns or erratic chaos
 2. Create a corresponding HTML file
 3. Update vite.config.ts with the new entry point
 4. Add navigation links in all HTML files
-5. Implement basic controls (reset, pause, etc.)
-6. Add console instructions
-7. Ensure responsive design
+5. Add console instructions
 
 Remember to maintain a balance between creative experimentation and code organization. Each sketch should be both visually interesting and well-structured. 
 
-Never write instructions inside Visualisation Notes.
 After each new sketch, update nav's in all html files. 
 
 Do not write what you have done at the end of our conversations. Do not inform me what you done, if I have not asked.

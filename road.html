@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Khayyám's Wisdom - A Visualization of Joy and Transformation</title>
+    <title>The Road Not Taken - A Visualization of Frost's Poem</title>
     <link rel="stylesheet" href="/styles/main.css">
     <!-- Add Prism.js CSS and JS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
@@ -19,25 +19,44 @@
             <li><a href="resilience.html">Resilience</a></li>
             <li><a href="raven.html">The Raven</a></li>
             <li><a href="butterfly.html">Butterfly</a></li>
-            <li><a href="khayyam.html" class="active">Khayyám's Wisdom</a></li>
+            <li><a href="khayyam.html">Khayyám's Wisdom</a></li>
             <li><a href="sail.html">The Sail</a></li>
             <li><a href="tao.html">The Tao</a></li>
             <li><a href="highlands.html">The Highlands</a></li>
             <li><a href="poison-tree.html">A Poison Tree</a></li>
-            <li><a href="road.html">The Road Not Taken</a></li>
+            <li><a href="road.html" class="active">The Road Not Taken</a></li>
           </ul>
         </nav>
-        <script type="module" src="/src/sketches/khayyam.ts"></script>
+        <script type="module" src="/src/sketches/road.ts"></script>
       </div>
       
       <div id="poem-container">
-        <h1 id="poem-title">On Joy and Wisdom</h1>
-        <div id="poem-author">— Omar Khayyám</div>
+        <h1 id="poem-title">The Road Not Taken</h1>
+        <div id="poem-author">— Robert Frost</div>
         <div id="poem-text">
-          <p>Are you depressed? Then take of bhang one grain,<br>
-          Of rosy grape-juice take one pint or twain;<br>
-          Sufis, you say, must not take this or that,<br>
-          Then go and eat the pebbles off the plain!</p>
+          <p>Two roads diverged in a yellow wood,<br>
+          And sorry I could not travel both<br>
+          And be one traveler, long I stood<br>
+          And looked down one as far as I could<br>
+          To where it bent in the undergrowth;</p>
+
+          <p>Then took the other, as just as fair,<br>
+          And having perhaps the better claim,<br>
+          Because it was grassy and wanted wear;<br>
+          Though as for that the passing there<br>
+          Had worn them really about the same,</p>
+
+          <p>And both that morning equally lay<br>
+          In leaves no step had trodden black.<br>
+          Oh, I kept the first for another day!<br>
+          Yet knowing how way leads on to way,<br>
+          I doubted if I should ever come back.</p>
+
+          <p>I shall be telling this with a sigh<br>
+          Somewhere ages and ages hence:<br>
+          Two roads diverged in a wood, and I—<br>
+          I took the one less traveled by,<br>
+          And that has made all the difference.</p>
         </div>
       </div>
 
@@ -51,7 +70,7 @@
 
     <script>
       // Fetch and display the source code
-      fetch('/src/sketches/khayyam.ts')
+      fetch('/src/sketches/road.ts')
         .then(response => response.text())
         .then(code => {
           document.getElementById('source-code').textContent = code;

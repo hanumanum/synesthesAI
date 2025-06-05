@@ -1,6 +1,6 @@
-# Synesthesia
+# SynesthesAI
 
-An interactive visual experiments project using p5.js and TypeScript. This project explores the relationship between different sensory experiences through creative coding.
+An interactive visual experiments project using p5.js and TypeScript. This project explores the relationship between different sensory experiences through creative coding with laverage of AI.
 
 ## 🎨 Features
 
