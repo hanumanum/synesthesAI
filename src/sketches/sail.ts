@@ -30,7 +30,6 @@ const sketch = (p: p5) => {
   let lights: Light[] = [];
   let stormPhase = 0;
   let isPaused = false;
-  let showInstructions = true;
   let time = 0;
   let mouseForce: p5.Vector;
   
@@ -180,18 +179,6 @@ const sketch = (p: p5) => {
         p.line(x, y, x + p.cos(angle) * length, y + p.sin(angle) * length);
       }
     }
-
-    // Draw instructions if enabled
-    if (showInstructions) {
-      p.fill(255, 200);
-      p.noStroke();
-      p.textSize(16);
-      p.textAlign(p.LEFT);
-      p.text("Move mouse to interact with the sail", 20, p.height - 60);
-      p.text("Press 'p' to pause/resume", 20, p.height - 40);
-      p.text("Press 'r' to reset", 20, p.height - 20);
-      p.text("Press 'i' to toggle instructions", 20, p.height - 0);
-    }
   };
 
   p.keyPressed = () => {
@@ -199,8 +186,6 @@ const sketch = (p: p5) => {
       isPaused = !isPaused;
     } else if (p.key === 'r' || p.key === 'R') {
       p.setup();
-    } else if (p.key === 'i' || p.key === 'I') {
-      showInstructions = !showInstructions;
     }
   };
 

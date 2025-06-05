@@ -13,9 +13,10 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         resilience: resolve(__dirname, 'resilience.html'),
-        resilience2: resolve(__dirname, 'resilience2.html'),
         raven: resolve(__dirname, 'raven.html'),
-        butterfly: resolve(__dirname, 'butterfly.html')
+        butterfly: resolve(__dirname, 'butterfly.html'),
+        khayyam: resolve(__dirname, 'khayyam.html'),
+        sail: resolve(__dirname, 'sail.html')
       }
     }
   }

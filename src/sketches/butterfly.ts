@@ -23,7 +23,6 @@ const sketch = (p: p5) => {
   let particles: Particle[] = [];
   let mouseForce: p5.Vector;
   let isPaused = false;
-  let showInstructions = true;
   let time = 0;
   let butterflyPhase = 0;
   let journeyProgress = 0;
@@ -117,7 +116,6 @@ const sketch = (p: p5) => {
     console.log("- Move mouse to interact with the butterfly");
     console.log("- Press 'p' to pause/resume");
     console.log("- Press 'r' to reset");
-    console.log("- Press 'i' to toggle instructions");
   };
 
   p.draw = () => {
@@ -242,17 +240,6 @@ const sketch = (p: p5) => {
 
       return true;
     });
-
-    // Draw instructions if enabled
-    if (showInstructions) {
-      p.fill(255, 200);
-      p.noStroke();
-      p.textSize(18); // Increased from 16
-      p.textAlign(p.LEFT);
-      p.text("Move mouse to interact with the butterfly", 20, p.height - 60);
-      p.text("Press 'p' to pause/resume", 20, p.height - 40);
-      p.text("Press 'r' to reset", 20, p.height - 20);
-    }
   };
 
   p.keyPressed = () => {
@@ -261,8 +248,6 @@ const sketch = (p: p5) => {
     } else if (p.key === 'r' || p.key === 'R') {
       particles = [];
       createButterfly(p.width * 0.5, p.height * 0.5);
-    } else if (p.key === 'i' || p.key === 'I') {
-      showInstructions = !showInstructions;
     }
   };
 
