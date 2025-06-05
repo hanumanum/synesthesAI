@@ -68,7 +68,7 @@
 
     <script>
       // Fetch and display the source code
-      fetch('/src/sketches/raven.ts')
+      fetch('../src/sketches/raven.ts')
         .then(response => response.text())
         .then(code => {
           document.getElementById('source-code').textContent = code;

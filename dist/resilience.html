@@ -87,7 +87,7 @@
 
     <script>
       // Fetch and display the source code
-      fetch('/src/sketches/resilience.ts')
+      fetch('../src/sketches/resilience.ts')
         .then(response => response.text())
         .then(code => {
           document.getElementById('source-code').textContent = code;

@@ -62,7 +62,7 @@
 
     <script>
       // Fetch and display the source code
-      fetch('/src/sketches/sail.ts')
+      fetch('../src/sketches/sail.ts')
         .then(response => response.text())
         .then(code => {
           document.getElementById('source-code').textContent = code;
