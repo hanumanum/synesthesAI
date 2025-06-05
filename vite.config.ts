@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
+  base: '',
   server: {
     open: true
   },
@@ -20,7 +21,12 @@ export default defineConfig({
         tao: resolve(__dirname, 'tao.html'),
         highlands: resolve(__dirname, 'highlands.html'),
         'poison-tree': resolve(__dirname, 'poison-tree.html'),
-        'road-not-taken': resolve(__dirname, 'road.html')
+        'road': resolve(__dirname, 'road.html')
+      },
+      output: {
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
       }
     }
   }
