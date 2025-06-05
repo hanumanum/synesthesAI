@@ -23,10 +23,7 @@ interface Particle {
 
 const sketch = (p: p5) => {
   let particles: Particle[] = [];
-  let mouseForce: p5.Vector;
-  let isPaused = false;
   let time = 0;
-  let centerForce: p5.Vector;
   let globalPhase = 0;
   
   // Add click interaction variables
@@ -37,7 +34,6 @@ const sketch = (p: p5) => {
   
   // Constants for optimization
   const GRID_SIZE = 100; // Size of spatial hash grid cells
-  const MAX_PARTICLES = 100; // Reduced total particle count
   const PARTICLE_COUNTS = {
     core: 10,    // Reduced from 20
     shield: 20,  // Reduced from 40
@@ -145,67 +141,8 @@ const sketch = (p: p5) => {
     });
   };
 
-  // Add new constants for continuous behavior
-  const MAX_DISTANCE = 800; // Maximum distance from center before recycling
-  const RECYCLE_RATE = 0.02; // Rate at which particles are recycled
-  const FLOW_SPAWN_RATE = 0.1; // Rate at which new flow particles spawn
-
-  const recycleParticle = (particle: Particle): Particle => {
-    const centerX = p.width / 2;
-    const centerY = p.height / 2;
-    const radius = Math.min(p.width, p.height) * 0.3;
-    
-    // Calculate new position based on particle type
-    let angle, distance;
-    if (particle.type === 'core') {
-      angle = p.random(p.TWO_PI);
-      distance = radius * 0.3;
-    } else if (particle.type === 'shield') {
-      angle = p.random(p.TWO_PI);
-      distance = radius * 0.6;
-    } else if (particle.type === 'flow') {
-      angle = p.random(p.TWO_PI);
-      distance = p.random(radius * 0.4, radius * 0.8);
-    } else if (particle.type === 'wisdom') {
-      angle = p.random(p.TWO_PI);
-      distance = p.random(radius * 0.5, radius * 0.9);
-    } else {
-      angle = p.random(p.TWO_PI);
-      distance = p.random(radius * 0.7, radius);
-    }
-
-    const x = centerX + p.cos(angle) * distance;
-    const y = centerY + p.sin(angle) * distance;
-
-    // Create new particle with same type but reset properties
-    return createParticle(x, y, particle.type);
-  };
-
-  const spawnFlowParticle = () => {
-    const centerX = p.width / 2;
-    const centerY = p.height / 2;
-    const radius = Math.min(p.width, p.height) * 0.3;
-    
-    // Spawn from the edges
-    const angle = p.random(p.TWO_PI);
-    const distance = radius * 1.2; // Slightly outside the main system
-    const x = centerX + p.cos(angle) * distance;
-    const y = centerY + p.sin(angle) * distance;
-    
-    const particle = createParticle(x, y, 'flow');
-    // Give it initial velocity towards the center
-    const dx = centerX - x;
-    const dy = centerY - y;
-    const length = Math.sqrt(dx * dx + dy * dy);
-    particle.velocity = p.createVector(
-      (dx / length) * particle.maxSpeed * 0.5,
-      (dy / length) * particle.maxSpeed * 0.5
-    );
-    return particle;
-  };
-
-  // Modify constants for continuous cycling
-  const CYCLE_DURATION = 1000; // Duration of one complete cycle
+ 
+ // Modify constants for continuous cycling
   const PHASE_SPEED = 0.001; // Speed of the global phase
   const TRANSITION_SPEED = 0.02; // Speed of transitions between states
   
@@ -349,15 +286,11 @@ const sketch = (p: p5) => {
     p.background(0, 0 , 0 , .2);
     p.colorMode(p.RGB, 255, 255, 255, 255);
 
-    mouseForce = p.createVector(0, 0);
-    centerForce = p.createVector(0, 0);
-    
+   
     createParticleSystem();
   };
 
   p.draw = () => {
-    if (isPaused) return;
-    
     time += 0.01;
     cyclePhase = (cyclePhase + PHASE_SPEED) % p.TWO_PI;
     globalPhase += 0.005;
@@ -487,14 +420,6 @@ const sketch = (p: p5) => {
         }
       });
     });
-  };
-
-  p.keyPressed = () => {
-    if (p.key === 'p') {
-      isPaused = !isPaused;
-    } else if (p.key === 'r') {
-      createParticleSystem();
-    }
   };
 
   p.windowResized = () => {
